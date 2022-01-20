@@ -4,6 +4,16 @@ let canvas,
     ctx,
     mouse = { down: [false, false, false], x: 0, y: 0 };
 
+window.requestAnimFrame =
+    window.requestAnimationFrame ||
+    window.webkitRequestAnimationFrame ||
+    window.mozRequestAnimationFrame ||
+    window.oRequestAnimationFrame ||
+    window.msRequestAnimationFrame ||
+    function (callback) {
+        window.setTimeout(callback, 1000 / 60);
+    };
+
 const update = function () {
     requestAnimFrame(update);
 
